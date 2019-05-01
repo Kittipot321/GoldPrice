@@ -82,6 +82,10 @@ namespace ComProProject2 {
 	private: System::Windows::Forms::ToolStripSeparator^  toolStripMenuItem3;
 	private: System::Windows::Forms::ToolStripMenuItem^  lightGreenToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  lightBlueToolStripMenuItem;
+	private: System::Windows::Forms::Button^  button4;
+	private: System::Windows::Forms::Panel^  panel_graph;
+
+	private: System::Windows::Forms::WebBrowser^  graph;
 
 	private: System::ComponentModel::IContainer^  components;
 	protected:
@@ -108,6 +112,8 @@ namespace ComProProject2 {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->panel_graph = (gcnew System::Windows::Forms::Panel());
+			this->graph = (gcnew System::Windows::Forms::WebBrowser());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -145,7 +151,9 @@ namespace ComProProject2 {
 			this->gtdata = (gcnew System::Windows::Forms::WebBrowser());
 			this->gold = (gcnew System::Windows::Forms::WebBrowser());
 			this->taladthong = (gcnew System::Windows::Forms::WebBrowser());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel_cal->SuspendLayout();
+			this->panel_graph->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->statusStrip1->SuspendLayout();
 			this->panel_rewind->SuspendLayout();
@@ -156,9 +164,9 @@ namespace ComProProject2 {
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Kanit Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(12, 25);
+			this->button1->Location = System::Drawing::Point(28, 23);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(331, 34);
+			this->button1->Size = System::Drawing::Size(228, 34);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"ราคาทองล่าสุด";
 			this->button1->UseVisualStyleBackColor = true;
@@ -168,9 +176,9 @@ namespace ComProProject2 {
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Kanit Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(349, 25);
+			this->button2->Location = System::Drawing::Point(278, 23);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(332, 34);
+			this->button2->Size = System::Drawing::Size(229, 34);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"ราคาทองย้อนหลัง";
 			this->button2->UseVisualStyleBackColor = true;
@@ -180,9 +188,9 @@ namespace ComProProject2 {
 			// 
 			this->button3->Font = (gcnew System::Drawing::Font(L"Kanit Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button3->Location = System::Drawing::Point(687, 25);
+			this->button3->Location = System::Drawing::Point(779, 23);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(334, 34);
+			this->button3->Size = System::Drawing::Size(231, 34);
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"คำนวณราคาทอง";
 			this->button3->UseVisualStyleBackColor = true;
@@ -242,6 +250,25 @@ namespace ComProProject2 {
 			this->label7->Size = System::Drawing::Size(93, 22);
 			this->label7->TabIndex = 11;
 			this->label7->Text = L"ราคาทองที่ซื้อ";
+			// 
+			// panel_graph
+			// 
+			this->panel_graph->Controls->Add(this->graph);
+			this->panel_graph->Location = System::Drawing::Point(0, 63);
+			this->panel_graph->Name = L"panel_graph";
+			this->panel_graph->Size = System::Drawing::Size(1033, 519);
+			this->panel_graph->TabIndex = 3;
+			// 
+			// graph
+			// 
+			this->graph->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->graph->Location = System::Drawing::Point(0, 0);
+			this->graph->MinimumSize = System::Drawing::Size(20, 20);
+			this->graph->Name = L"graph";
+			this->graph->Size = System::Drawing::Size(1033, 519);
+			this->graph->TabIndex = 0;
+			this->graph->Url = (gcnew System::Uri(L"https://kittipot321.github.io/topfy/graph.html", System::UriKind::Absolute));
+			this->graph->DocumentCompleted += gcnew System::Windows::Forms::WebBrowserDocumentCompletedEventHandler(this, &Form1::graph_DocumentCompleted);
 			// 
 			// label6
 			// 
@@ -397,7 +424,7 @@ namespace ComProProject2 {
 			// 
 			this->refreshToolStripMenuItem->Name = L"refreshToolStripMenuItem";
 			this->refreshToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::F5;
-			this->refreshToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->refreshToolStripMenuItem->Size = System::Drawing::Size(151, 22);
 			this->refreshToolStripMenuItem->Text = L"Refresh";
 			this->refreshToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::refreshToolStripMenuItem_Click);
 			// 
@@ -407,14 +434,14 @@ namespace ComProProject2 {
 			this->dateAndTimeToolStripMenuItem->CheckOnClick = true;
 			this->dateAndTimeToolStripMenuItem->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->dateAndTimeToolStripMenuItem->Name = L"dateAndTimeToolStripMenuItem";
-			this->dateAndTimeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->dateAndTimeToolStripMenuItem->Size = System::Drawing::Size(151, 22);
 			this->dateAndTimeToolStripMenuItem->Text = L"Date and Time";
 			this->dateAndTimeToolStripMenuItem->CheckedChanged += gcnew System::EventHandler(this, &Form1::dateAndTimeToolStripMenuItem_CheckedChanged);
 			// 
 			// clearToolStripMenuItem
 			// 
 			this->clearToolStripMenuItem->Name = L"clearToolStripMenuItem";
-			this->clearToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->clearToolStripMenuItem->Size = System::Drawing::Size(151, 22);
 			this->clearToolStripMenuItem->Text = L"Clear";
 			this->clearToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::clearToolStripMenuItem_Click);
 			// 
@@ -425,7 +452,7 @@ namespace ComProProject2 {
 					this->toolStripMenuItem3, this->lightGreenToolStripMenuItem, this->lightBlueToolStripMenuItem
 			});
 			this->themeSoonToolStripMenuItem->Name = L"themeSoonToolStripMenuItem";
-			this->themeSoonToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->themeSoonToolStripMenuItem->Size = System::Drawing::Size(151, 22);
 			this->themeSoonToolStripMenuItem->Text = L"Theme";
 			// 
 			// defaultToolStripMenuItem
@@ -457,13 +484,13 @@ namespace ComProProject2 {
 			// toolStripMenuItem2
 			// 
 			this->toolStripMenuItem2->Name = L"toolStripMenuItem2";
-			this->toolStripMenuItem2->Size = System::Drawing::Size(177, 6);
+			this->toolStripMenuItem2->Size = System::Drawing::Size(148, 6);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
 			this->exitToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Alt | System::Windows::Forms::Keys::F4));
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(151, 22);
 			this->exitToolStripMenuItem->Text = L"Exit";
 			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::exitToolStripMenuItem_Click);
 			// 
@@ -481,19 +508,19 @@ namespace ComProProject2 {
 			// 
 			this->helpToolStripMenuItem1->Name = L"helpToolStripMenuItem1";
 			this->helpToolStripMenuItem1->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::F1));
-			this->helpToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
+			this->helpToolStripMenuItem1->Size = System::Drawing::Size(145, 22);
 			this->helpToolStripMenuItem1->Text = L"Help";
 			// 
 			// toolStripMenuItem1
 			// 
 			this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
-			this->toolStripMenuItem1->Size = System::Drawing::Size(177, 6);
+			this->toolStripMenuItem1->Size = System::Drawing::Size(142, 6);
 			// 
 			// aboutToolStripMenuItem
 			// 
 			this->aboutToolStripMenuItem->Name = L"aboutToolStripMenuItem";
 			this->aboutToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::F12;
-			this->aboutToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->aboutToolStripMenuItem->Size = System::Drawing::Size(145, 22);
 			this->aboutToolStripMenuItem->Text = L"About";
 			this->aboutToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aboutToolStripMenuItem_Click);
 			// 
@@ -519,9 +546,9 @@ namespace ComProProject2 {
 			// panel_rewind
 			// 
 			this->panel_rewind->Controls->Add(this->rewind);
-			this->panel_rewind->Location = System::Drawing::Point(0, 65);
+			this->panel_rewind->Location = System::Drawing::Point(0, 63);
 			this->panel_rewind->Name = L"panel_rewind";
-			this->panel_rewind->Size = System::Drawing::Size(1033, 517);
+			this->panel_rewind->Size = System::Drawing::Size(1033, 519);
 			this->panel_rewind->TabIndex = 5;
 			// 
 			// rewind
@@ -531,7 +558,7 @@ namespace ComProProject2 {
 			this->rewind->MinimumSize = System::Drawing::Size(20, 20);
 			this->rewind->Name = L"rewind";
 			this->rewind->ScriptErrorsSuppressed = true;
-			this->rewind->Size = System::Drawing::Size(1033, 517);
+			this->rewind->Size = System::Drawing::Size(1033, 519);
 			this->rewind->TabIndex = 0;
 			this->rewind->Url = (gcnew System::Uri(L"https://kittipot321.github.io/topfy/rewind.html", System::UriKind::Absolute));
 			// 
@@ -548,7 +575,6 @@ namespace ComProProject2 {
 			this->panel_release->Name = L"panel_release";
 			this->panel_release->Size = System::Drawing::Size(1033, 519);
 			this->panel_release->TabIndex = 15;
-			this->panel_release->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::panel_release_Paint);
 			// 
 			// gtdata
 			// 
@@ -583,6 +609,18 @@ namespace ComProProject2 {
 			this->taladthong->TabIndex = 0;
 			this->taladthong->Url = (gcnew System::Uri(L"https://kittipot321.github.io/topfy/index.html", System::UriKind::Absolute));
 			// 
+			// button4
+			// 
+			this->button4->Font = (gcnew System::Drawing::Font(L"Kanit Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->Location = System::Drawing::Point(530, 23);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(231, 34);
+			this->button4->TabIndex = 3;
+			this->button4->Text = L"กราฟราคาทอง";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &Form1::button4_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -591,9 +629,11 @@ namespace ComProProject2 {
 			this->ClientSize = System::Drawing::Size(1033, 614);
 			this->Controls->Add(this->panel_release);
 			this->Controls->Add(this->panel_cal);
+			this->Controls->Add(this->button4);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->panel_graph);
 			this->Controls->Add(this->panel_rewind);
 			this->Controls->Add(this->statusStrip1);
-			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->menuStrip1);
@@ -606,6 +646,7 @@ namespace ComProProject2 {
 			this->Text = L"GoldPrice";
 			this->panel_cal->ResumeLayout(false);
 			this->panel_cal->PerformLayout();
+			this->panel_graph->ResumeLayout(false);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->statusStrip1->ResumeLayout(false);
@@ -623,14 +664,23 @@ namespace ComProProject2 {
 		panel_cal->Visible = false;
 		panel_rewind->Visible = false;
 		panel_release->Visible = true;
+		panel_graph->Visible = false;
 	}
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 		panel_cal->Visible = false;
 		panel_rewind->Visible = true;
 		panel_release->Visible = false;
+		panel_graph->Visible = false;
 	}
 	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 		panel_cal->Visible = true;
+		panel_rewind->Visible = false;
+		panel_release->Visible = false;
+		panel_graph->Visible = false;
+	}
+	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+		panel_graph->Visible = true;
+		panel_cal->Visible = false;
 		panel_rewind->Visible = false;
 		panel_release->Visible = false;
 	}
@@ -723,6 +773,7 @@ namespace ComProProject2 {
 		gtdata->Refresh();
 		taladthong->Refresh();
 		rewind->Refresh();
+		graph->Refresh();
 	}
 		// About
 	private: System::Void aboutToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
@@ -733,10 +784,6 @@ namespace ComProProject2 {
 	private: System::Void clearToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		clear_Click(sender, e);
-	}
-	private: System::Void pull_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		
 	}
 	private: System::Void defaultToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
 	{
@@ -750,7 +797,7 @@ namespace ComProProject2 {
 	{
 		this->BackColor = System::Drawing::Color::FromArgb(3, 169, 244);
 	}
-private: System::Void panel_release_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+private: System::Void graph_DocumentCompleted(System::Object^  sender, System::Windows::Forms::WebBrowserDocumentCompletedEventArgs^  e) {
 }
 };
 }
