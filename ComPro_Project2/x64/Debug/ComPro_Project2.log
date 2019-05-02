@@ -1,4 +1,0 @@
-﻿  Form1.cpp
-  Form1.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-MSVCRTD.lib(exe_winmain.obj) : error LNK2019: unresolved external symbol WinMain referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\KL191\Desktop\ComPro_Project2\x64\Debug\ComPro_Project2.exe : fatal error LNK1120: 1 unresolved externals

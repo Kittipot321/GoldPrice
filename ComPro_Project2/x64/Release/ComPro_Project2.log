@@ -1,2 +1,0 @@
-﻿MSVCRT.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl __scrt_common_main_seh(void)" (?__scrt_common_main_seh@@YAHXZ)
-C:\Users\KL191\Desktop\ComPro_Project2\x64\Release\ComPro_Project2.exe : fatal error LNK1120: 1 unresolved externals
