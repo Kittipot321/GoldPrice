@@ -25,3 +25,5 @@
  * www.gold.in.th
  * http://www.thaigold.info/RealTimeDataV2/GTfairprice2016.php
  * www.kitco.com
+## วีดีโอ
+ * https://youtu.be/t_YcC801pIY
