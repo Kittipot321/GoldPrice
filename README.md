@@ -1,6 +1,6 @@
 # โปรแกรมราคาทอง GoldPrice
 <p align="center">
-  <img width="460" height="300" src="goldingot.PNG">
+  <img width="460" height="300" src="goldingot.png">
 </p>
 
 โปรแกรมรายงานราคาทองในประเทศไทย ทั้งราคาทองคำแท่งและทองคำรูปพรรณประจำวัน
