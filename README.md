@@ -24,7 +24,7 @@
   * เปลี่ยนสีหน้าตาของโปรแกรม
 
 ## องค์ประกอบของโปรแกรม
-  * C++ in Visual Studio Code 2017
+  * C++ in Visual Studio 2017
 
 ## อ้างอิง
  * www.taladthong.com
